@@ -34,9 +34,6 @@ const Main = () => (
             <Route exact path='/platforms/switch' component={NintendoSwitch}/>
             
             <Route exact path='/game/:gameTitle' render={(props) => <Game {...props} />}/>
-
-            {/* <Route exact path='/login' component={Login}/> */}
-            {/* <Route exact path='/dashboard' render={() => sessionStorage.getItem('jwtToken') ? (<Dashboard />) : (<Redirect to={{ pathname: '/home' }}/>)} /> */}
         </Switch>
     </main>
 );
