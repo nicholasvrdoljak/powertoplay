@@ -44,7 +44,6 @@ export default class Game extends Component {
                 this.setState({name: game.name, id: [...this.state.id, game.id], platform: [...this.state.platform, game.platform], image: game.image}, console.log('***',this.state))
             }
             // check to see that this game has data in the db
-            // if so, then update the state
             // if not, then redirect to a page that says we haven't found any info on that game.
             console.log(this.state);
         }).catch((err) => {
