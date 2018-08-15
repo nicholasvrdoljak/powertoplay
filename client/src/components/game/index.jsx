@@ -5,7 +5,12 @@ import axios from 'axios';
 export default class Game extends Component {
     constructor(props) {
         super(props);
-        this.state = {game: ''}
+        this.state = {
+            name: '', 
+            id: [], 
+            platform: [], 
+            image: ''
+        }
         this.updatePage = this.updatePage.bind(this);
     }
 
@@ -25,15 +30,23 @@ export default class Game extends Component {
 
     updatePage({game}) {
         console.log(game);
+        this.setState({
+            name: '', 
+            id: [], 
+            platform: [], 
+            image: ''
+        })
         // use a loading thing
         // query for the game
         axios.get(`/gameQuery/${game}`).then((response) => {
-            console.log('***', response)
-        // check to see that this game has data in the db
-        // if so, then update the state
-        this.setState({game: game});
-        // if not, then redirect to a page that says we haven't found any info on that game.
-
+            console.log(response);
+            for(let game of response.data) {
+                this.setState({name: game.name, id: [...this.state.id, game.id], platform: [...this.state.platform, game.platform], image: game.image}, console.log('***',this.state))
+            }
+            // check to see that this game has data in the db
+            // if so, then update the state
+            // if not, then redirect to a page that says we haven't found any info on that game.
+            console.log(this.state);
         }).catch((err) => {
             console.log(err);
         });
@@ -41,8 +54,20 @@ export default class Game extends Component {
 
     render() {
         return (
-            <div>
-                <p>{this.state.game}</p>
+            <div className='gameContent'>
+                <div className='gameImage'><img src={this.state.image}/></div>
+
+                <div className='gameDetails'>
+                    Platforms: <p>{this.state.platform.map((item) => {return `${item} `})}</p>
+                    Description: <p>This is a description of the game</p>
+                </div>
+
+                <div className='gameTimes'><p>HIHI HIHIHIH asd;laksdf;lakjs \n<br/>
+                 kl;a jl;kasj df;lajks d;lgkj n\ \n <br/>
+                as;ldkgj dslfkjghsd lfkgjhs oihe origuhwo ieuhfgds oifh 
+                osidfjhgos dijfh IHIHIH IHIHIHI
+                </p>
+                </div>
             </div>
         )
     }

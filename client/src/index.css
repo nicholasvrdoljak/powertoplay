@@ -43,6 +43,7 @@ li {
 .navBarContent {
   margin: 0 0 0 0;
   text-align: center;
+  flex-wrap: wrap;
 }
 
 .dropdown {
@@ -64,7 +65,7 @@ li {
   display: block;
 }
 
-.header, .content {
+.header, {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -73,6 +74,7 @@ li {
 }
 
 .content {
+  display: flex;
   background-color: rgb(235, 235, 235);
   width: 100%;
   height: 85vh;
@@ -100,7 +102,7 @@ li {
 
 .contributeTitle {
   width: 50%;
-  padding: 40px;
+  margin: 40px;
 }
 
 .contributeItem {
@@ -147,4 +149,27 @@ h1, h2 {
 .nameHeader {
   /* position: absolute; */
   margin: 1em 0em 0em 0em;
+}
+
+.gameContent{
+  display: flex; 
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.gameImage img{
+  margin: 10px;
+  width: 15em;
+}
+
+.gameDetails {
+  margin: auto;
+  flex-grow: 1;
+}
+
+.gameTimes {
+  margin: 10px;
+  border: black 1px solid;
 }

@@ -6,10 +6,9 @@ export default class Contribute extends Component {
             <div className='contribute'>
                 <div className='contributeTitle'>
                     <h1>Contribute</h1>
-                    <p>Share your ideas with me and let's create something.</p>
                 </div>
-
                 <div className='contributeItem'>
+                    <a href='https://www.patreon.com/asterios'>Patreon</a>
                 </div>
             </div>
 

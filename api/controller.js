@@ -3,7 +3,16 @@ const Promise = require('bluebird');
 
 module.exports.getGame = (req, res) => {
     console.log(req.params);
-    res.send('cool game brah');
+    db.query('SELECT * FROM games WHERE name = ?', 
+    [req.params.game], 
+    (err, data)=> {
+        if (!err) {
+            console.log(data);
+            res.send(data);
+        } else {
+            console.log(err);
+        }
+    })
 }
 
 module.exports.getTrends = (req, res) => {
